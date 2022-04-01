@@ -63,7 +63,7 @@
             v-if="!model.isLeaf && !model.addTreeNodeDisabled"
           >
             <slot name="addTreeNodeIcon" :expanded="expanded" :model="model" :root="rootNode">
-              <i class="vtl-icon vtl-icon-folder-plus-e"></i> qsdqsdqsd
+              <i class="vtl-icon vtl-icon-folder-plus-e"></i>
             </slot>
           </span>
           <span
@@ -170,7 +170,7 @@ export default {
     },
     defaultAddTreeNodeTitle: {
       type: String,
-      default: 'Add Tree Node'
+      default: 'Add Tree Node coucou'
     },
     defaultAddLeafNodeTitle: {
       type: String,
