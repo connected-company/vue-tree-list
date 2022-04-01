@@ -57,17 +57,17 @@
           @blur="setUnEditable"
         />
         <div class="vtl-operation" v-show="isHover">
-          <slot name="addFolder" v-bind:model="model">
-            <span
-              :title="defaultAddTreeNodeTitle"
-              @click.stop.prevent="addChild(false)"
-              v-if="!model.isLeaf && !model.addTreeNodeDisabled"
-            >
-              <slot name="addTreeNodeIcon" :expanded="expanded" :model="model" :root="rootNode">
-                <i class="vtl-icon vtl-icon-folder-plus-e"></i>
-              </slot>
-            </span>
-          </slot>
+          <slot name="actions" v-bind:model="model"> </slot>
+
+          <span
+            :title="defaultAddTreeNodeTitle"
+            @click.stop.prevent="addChild(false)"
+            v-if="!model.isLeaf && !model.addTreeNodeDisabled"
+          >
+            <slot name="addTreeNodeIcon" :expanded="expanded" :model="model" :root="rootNode">
+              <i class="vtl-icon vtl-icon-folder-plus-e"></i>
+            </slot>
+          </span>
           <span
             :title="defaultAddLeafNodeTitle"
             @click.stop.prevent="addChild(true)"
@@ -117,6 +117,11 @@
         <template v-slot:leafNameDisplay="slotProps">
           <slot name="leafNameDisplay" v-bind="slotProps" />
         </template>
+
+        <template v-slot:actions="slotProps">
+          <slot name="actions" v-bind="slotProps"> </slot>
+        </template>
+
         <template v-slot:addTreeNodeIcon="slotProps">
           <slot name="addTreeNodeIcon" v-bind="slotProps" />
         </template>
