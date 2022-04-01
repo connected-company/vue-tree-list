@@ -63,7 +63,7 @@
             v-if="!model.isLeaf && !model.addTreeNodeDisabled"
           >
             <slot name="addTreeNodeIcon" :expanded="expanded" :model="model" :root="rootNode">
-              <i class="vtl-icon vtl-icon-folder-plus-e"></i>
+              <i class="vtl-icon vtl-icon-folder-plus-e"></i> qsdqsdqsd
             </slot>
           </span>
           <span
