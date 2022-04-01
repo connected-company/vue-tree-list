@@ -57,15 +57,17 @@
           @blur="setUnEditable"
         />
         <div class="vtl-operation" v-show="isHover">
-          <span
-            :title="defaultAddTreeNodeTitle"
-            @click.stop.prevent="addChild(false)"
-            v-if="!model.isLeaf && !model.addTreeNodeDisabled"
-          >
-            <slot name="addTreeNodeIcon" :expanded="expanded" :model="model" :root="rootNode">
-              <i class="vtl-icon vtl-icon-folder-plus-e"></i>
-            </slot>
-          </span>
+          <slot name="addFolder" v-bind:model="model">
+            <span
+              :title="defaultAddTreeNodeTitle"
+              @click.stop.prevent="addChild(false)"
+              v-if="!model.isLeaf && !model.addTreeNodeDisabled"
+            >
+              <slot name="addTreeNodeIcon" :expanded="expanded" :model="model" :root="rootNode">
+                <i class="vtl-icon vtl-icon-folder-plus-e"></i>
+              </slot>
+            </span>
+          </slot>
           <span
             :title="defaultAddLeafNodeTitle"
             @click.stop.prevent="addChild(true)"
@@ -170,7 +172,7 @@ export default {
     },
     defaultAddTreeNodeTitle: {
       type: String,
-      default: 'Add Tree Node coucou'
+      default: 'Add Tree Node'
     },
     defaultAddLeafNodeTitle: {
       type: String,
